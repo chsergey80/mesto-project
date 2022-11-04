@@ -1,0 +1,10 @@
+.element{
+  margin: 0;
+  padding: 0;
+  display: grid;
+  max-width: 282px;
+  grid-template-columns: 1fr 44px;
+  grid-template-rows: 282px 1fr;
+  background-color: #FFF;
+  border-radius: 10px;
+  }

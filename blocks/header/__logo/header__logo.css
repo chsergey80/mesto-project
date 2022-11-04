@@ -1,0 +1,11 @@
+.header__logo{
+    height: 33px;
+    shape-rendering: crispEdges;
+    padding: 45px 0 41px;
+}
+@media screen and (max-width: 1000px){
+    .header__logo{
+        padding: 28px 0 32px 27px;
+        height: 24px;
+    }
+}
