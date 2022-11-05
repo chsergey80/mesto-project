@@ -7,17 +7,15 @@
 }
 @font-face{
   src:
-    url(./Inter/Inter-Medium.woff2) format('woff2'),
-    url(./Inter/Inter-Medium.woff) format('woff');
-    font-family: 'Inter';
-    font-style: 'Medium';
-    font-weight: 500;
+  url(./Inter/Inter-Medium.woff2) format('woff2'),
+  url(./Inter/Inter-Medium.woff) format('woff');
+  font-family: 'Inter';
+  font-weight: 500;
   }
 @font-face{
   src:
   url(./Inter/Inter-Black.woff2) format('woff2'),
   url(./Inter/Inter-Black.woff) format('woff');
   font-family: 'Inter';
-  font-style: 'Black';
   font-weight: 900;
 }

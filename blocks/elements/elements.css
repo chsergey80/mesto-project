@@ -12,8 +12,8 @@
         max-width: 320px;
     }
 }
-@media screen and (max-width: 320px){
+/*@media screen and (max-width: 320px){
     .elements{
         padding: 0 19px;
 }
-}
+}*/      /*исправление замечаний 1 итерация*/
