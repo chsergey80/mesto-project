@@ -1,18 +1,19 @@
 .popup{
-  background-color: rgba(0, 0, 0, .5);
-  width: 430px;
-  height: 330px;
-  border: 1px solid #000000;
+  /*background-color: rgba(0, 0, 0, .5);*/
+  width: 100%;     /*   замечание 2 итерации исправлено*/
+  height: 100%;     /*   замечание 2 итерации исправлено*/
+  /*border: 1px solid #000000;*/     /*   замечание 2 итерации исправлено*/
   position: fixed;
-  display: flex;
-  top: 50%;
+  display: none;     /*   замечание 2 итерации исправлено*/
+  /*top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-@media screen and (max-width: 620px){
-  .popup{
-    width: 282px;
-    height: 322px;
-  }
+  transform: translate(-50%, -50%);*/
+  overflow: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  z-index: 2;
 }

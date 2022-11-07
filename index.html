@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="./pages/index.css">
   </head>
   <body class="page">
-    <header class="header page__section"><img src="./images/Vector.svg" alt="Логотип" class="header__logo">
+    <header class="header page__section">
+      <img src="./images/Vector.svg" alt="Логотип" class="header__logo">
     </header>
     <main class="content">
       <section class="profile page__section">
@@ -26,44 +27,51 @@
       </section>
       <section class="elements page__section">
         <ul class="elements__list">
-          <li class="element"><img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаевск" class="element__image">
+          <li class="element">
+            <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаевск" class="element__image">
             <h2 class="element__title">Карачаевск</h2>
             <button type="button" class="element__button-heart"></button>
           </li>
-          <li class="element"><img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус" class="element__image">
+          <li class="element">
+            <img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус" class="element__image">
             <h2 class="element__title">Гора Эльбрус</h2>
             <button type="button" class="element__button-heart"></button>
           </li>
-          <li class="element"><img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Домбай" class="element__image">
+          <li class="element">
+            <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Домбай" class="element__image">
             <h2 class="element__title">Домбай</h2>
             <button type="button" class="element__button-heart"></button>
           </li>
-          <li class="element"><img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус" class="element__image">
+          <li class="element">
+            <img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус" class="element__image">
             <h2 class="element__title">Гора Эльбрус</h2>
             <button type="button" class="element__button-heart"></button>
           </li>
-          <li class="element"><img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Домбай" class="element__image">
+          <li class="element">
+            <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Домбай" class="element__image">
             <h2 class="element__title">Домбай</h2>
             <button type="button" class="element__button-heart"></button>
           </li>
-          <li class="element"><img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаево-Черкесия" class="element__image">
+          <li class="element">
+            <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаево-Черкесия" class="element__image">
             <h2 class="element__title">Карачаево-Черкесия</h2>
             <button type="button" class="element__button-heart"></button>
           </li>
         </ul>
       </section>
     </main>
-    <footer class="footer page__section"><p class="footer__text">&copy;2022 Mesto Russia</p>
+    <footer class="footer page__section">
+      <p class="footer__text">&copy;2022 Mesto Russia</p>
     </footer>
-    <div class="popup popup_opened">
-      <form class="popup__container">
+    <div class="popup">
+      <form class="popup__container" name="profile__edit">  <!-- испраление замечаний 2 итерация-->
         <button type="button" class="popup__button-close"></button>
         <h2 class="popup__header">Редактировать профиль</h2>
-          <fieldset class="popup__form">
-            <input type="text" name="firstname" value="Жак-Ив Кусто" class="popup__text">
-            <input type="text" name="subtitle" value="Исследователь океана" class="popup__text">
-            <input type="submit" class="popup__button" value="Сохранить">
-          </fieldset>
+        <fieldset class="popup__form">
+          <input type="text" name="firstname" value="Жак-Ив Кусто" class="popup__text">
+          <input type="text" name="subtitle" value="Исследователь океана" class="popup__text">
+          <input type="submit" class="popup__button" value="Сохранить">
+        </fieldset>
       </form>
     </div>
   </body>
