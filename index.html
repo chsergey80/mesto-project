@@ -63,16 +63,16 @@
     <footer class="footer page__section">
       <p class="footer__text">&copy;2022 Mesto Russia</p>
     </footer>
-    <div class="popup">
-      <form class="popup__container" name="profile__edit">  <!-- испраление замечаний 2 итерация-->
-        <button type="button" class="popup__button-close"></button>
-        <h2 class="popup__header">Редактировать профиль</h2>
-        <fieldset class="popup__form">
+    <div class="popup popup_opened"><!-- испраление замечаний 3 итерация, перестраиваю логику: сначала идет попап-->
+      <div class="popup__container" name="profile__edit">  <!--Затем идет окошко в центре-->
+        <h2 class="popup__header">Редактировать профиль</h2>  <!--А уже в окошке размещаем заголовок, кнопку и форму-->
+        <button type="button" class="popup__button-close"></button> 
+        <form class="popup__form">
           <input type="text" name="firstname" value="Жак-Ив Кусто" class="popup__text">
           <input type="text" name="subtitle" value="Исследователь океана" class="popup__text">
           <input type="submit" class="popup__button" value="Сохранить">
-        </fieldset>
-      </form>
+        </form>
+      </div>
     </div>
   </body>
 </html>
