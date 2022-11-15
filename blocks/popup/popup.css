@@ -1,13 +1,9 @@
 .popup{
   background-color: rgba(0, 0, 0, .5);
-  width: 100%;     /*   замечание 2 итерации исправлено*/
-  height: 100%;     /*   замечание 2 итерации исправлено*/
-  /*border: 1px solid #000000;*/     /*   замечание 2 итерации исправлено*/
+  width: 100%;
+  height: 100%;
   position: fixed;
-  display: none;     /*   замечание 2 итерации исправлено*/
-  /*top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);*/
+  display: none;
   overflow: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
