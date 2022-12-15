@@ -1,0 +1,17 @@
+/* темное сердечко - знак понравилось */
+.element__button-heart_dark {
+    background-color: transparent;
+    margin: 0;
+    border: none; 
+    padding: 0;
+    width: 22px;
+    height: 19px;
+    background: url(../../../../images/DarkHeart.svg);
+    background-position: center;
+    background-size: 22px 19px; 
+    background-repeat: no-repeat;
+    align-self: center;
+    margin-right: 20px;
+    transition: opacity .5s;
+    cursor: pointer;
+  }

@@ -1,0 +1,17 @@
+.popup-card__header {
+  margin: 0 64px 48px 36px;
+  color: #000;
+  line-height: 29px;
+  font-size: 24px;
+  font-weight: 900;
+  font-style: normal;
+}
+
+
+@media screen and (max-width: 920px) {
+  .popup-card__header {
+    line-height: 22px;
+    font-size: 18px;
+    margin: 0 22px 75px; 
+    }
+}

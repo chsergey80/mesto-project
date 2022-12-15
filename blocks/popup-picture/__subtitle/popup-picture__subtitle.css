@@ -1,0 +1,10 @@
+/* стили подписи под изображением */
+.popup-picture__subtitle {
+  background: #000;
+  color: #fff;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+  padding-top: 10px;
+  line-height: 15px;
+}

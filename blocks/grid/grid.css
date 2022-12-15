@@ -1,0 +1,18 @@
+.grid {
+  margin: 0 auto;
+  width: 880px;
+}
+
+
+@media screen and (max-width: 920px) {
+  .grid {
+    width: 581px;
+  }
+}
+
+
+@media screen and (max-width: 620px) {
+  .grid {
+    width: 282px;
+  }
+}

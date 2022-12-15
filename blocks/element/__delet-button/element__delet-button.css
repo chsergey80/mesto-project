@@ -1,0 +1,23 @@
+/* кнопка - мусорная карзина - удаление карточки */
+.element__delet-button {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  width: 18px;
+  height: 19px;
+  margin-top: 15px;
+  background: url(../../../images/Trash.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  cursor: pointer;
+  transition: opacity .5s;
+}
+
+.element__delet-button:hover {
+  opacity: 0.6;
+}
+

@@ -10,10 +10,13 @@
     <link rel="stylesheet" href="./pages/index.css">
   </head>
   <body class="page">
+    
     <header class="header page__section">
       <img src="./images/Vector.svg" alt="Логотип" class="header__logo">
     </header>
+    
     <main class="content">
+      
       <section class="profile page__section">
         <div class="profile__container">
           <img src="./images/Jacques.jpg" class="profile__avatar" alt="Зрелый Жак-Ив Кусто любимец моря">
@@ -25,54 +28,64 @@
         </div>
           <button type="button" class="profile__add-button"></button>
       </section>
-      <section class="elements page__section">
-        <ul class="elements__list">
-          <li class="element">
-            <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаевск" class="element__image">
-            <h2 class="element__title">Карачаевск</h2>
-            <button type="button" class="element__button-heart"></button>
-          </li>
-          <li class="element">
-            <img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус" class="element__image">
-            <h2 class="element__title">Гора Эльбрус</h2>
-            <button type="button" class="element__button-heart"></button>
-          </li>
-          <li class="element">
-            <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Домбай" class="element__image">
-            <h2 class="element__title">Домбай</h2>
-            <button type="button" class="element__button-heart"></button>
-          </li>
-          <li class="element">
-            <img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус" class="element__image">
-            <h2 class="element__title">Гора Эльбрус</h2>
-            <button type="button" class="element__button-heart"></button>
-          </li>
-          <li class="element">
-            <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Домбай" class="element__image">
-            <h2 class="element__title">Домбай</h2>
-            <button type="button" class="element__button-heart"></button>
-          </li>
-          <li class="element">
-            <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаево-Черкесия" class="element__image">
-            <h2 class="element__title">Карачаево-Черкесия</h2>
-            <button type="button" class="element__button-heart"></button>
-          </li>
-        </ul>
+      
+      <section class="grid" aria-label="Секция содержащая карточки мест">
+        <ul class="grid__list"></ul>
       </section>
+      
     </main>
+
     <footer class="footer page__section">
       <p class="footer__text">&copy;2022 Mesto Russia</p>
     </footer>
-    <div class="popup popup_opened">
-      <div class="popup__container" name="profile__edit">
-        <h2 class="popup__header">Редактировать профиль</h2>
-        <button type="button" class="popup__button-close"></button> 
-        <form class="popup__form">
-          <input type="text" name="firstname" value="Жак-Ив Кусто" class="popup__text">
-          <input type="text" name="subtitle" value="Исследователь океана" class="popup__text">
-          <input type="submit" class="popup__button" value="Сохранить">
+
+    <div class="popup popup-profile">
+      <div class="popup__container"> 
+        <h2 class="popup__header">Редактировать профиль</h2>  
+        <button class="popup__button-close" type="button"></button> 
+        <form class="popup__form popup__form_profile">
+          <input class="popup__text popup__text_title" type="text" name="firstname" value="" placeholder="Ваше имя">
+          <input class="popup__text popup__text_subtitle" type="text" name="subtitle" value="" placeholder="Ваш род занятий">
+          <input class="popup__button" type="submit"  value="Сохранить">
         </form>
       </div>
     </div>
+
+    <div class="popup popup-card">
+      <div class="popup-card__container">
+        <h2 class="popup-card__header">Новое место</h2>
+        <button class="popup__button-close popup-card__close" type="button" aria-label="Закрывает окно добавления карточки"></button>  
+        <form class="popup__form popup__form_card" name="cardEditing"> 
+          <input class="popup__text popup__text_edit_name" type="text" name="title" value="" placeholder="Название">
+          <input class="popup__text popup__text_edit_link" type="text" name="link"  value="" placeholder="Ссылка на картинку">
+          <button class="popup__button popup-card__button" type="submit" aria-label="Вносит карточку в проект">Сохранить</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup popup-picture"> 
+      <div class="popup-picture__container">
+        <button class="popup__button-close popup-picture__close" type="button" aria-label="Закрывает картинку Место"></button> 
+        <img class="popup-picture__picture"   src="https://travel.biletyplus.ru/wp-content/uploads/2015/09/tel-aviv.jpg" alt="">
+        <p class="popup-picture__subtitle"></p>
+      </div>
+    </div>
+
+    <template id="templateCard">
+      <li class="grid__list-cell">
+        <article class="element">
+          <img class="element__image" src="" alt="">
+          <button class="element__delet-button" type="button" aria-label="Удаляет карточку"></button>
+          <div class="element__footer">
+            <h2 class="element__title"></h2>
+            <button class="element__button-heart " type="button" aria-label="Активирует знак сердечко - понравилось"></button>
+          </div>
+        </article>
+      </li>
+    </template>
+
+    <script src="js/script.js"></script>
+
   </body>
+
 </html>
