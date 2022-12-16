@@ -42,8 +42,8 @@
     <div class="popup popup-profile">
       <div class="popup__container"> 
         <h2 class="popup__header">Редактировать профиль</h2>  
-        <button class="popup__button-close" type="button"></button> 
-        <form class="popup__form popup__form_profile">
+        <button class="popup__button-close popup__button-close_profile" type="button"></button> 
+        <form class="popup__form popup__form_profile" name="profileEditing">
           <input class="popup__text popup__text_title" type="text" name="firstname" value="" placeholder="Ваше имя">
           <input class="popup__text popup__text_subtitle" type="text" name="subtitle" value="" placeholder="Ваш род занятий">
           <input class="popup__button" type="submit"  value="Сохранить">
@@ -54,7 +54,7 @@
     <div class="popup popup-card">
       <div class="popup-card__container">
         <h2 class="popup-card__header">Новое место</h2>
-        <button class="popup__button-close popup-card__close" type="button" aria-label="Закрывает окно добавления карточки"></button>  
+        <button class="popup__button-close popup__button-close_card" type="button" aria-label="Закрывает окно добавления карточки"></button>  
         <form class="popup__form popup__form_card" name="cardEditing"> 
           <input class="popup__text popup__text_edit_name" type="text" name="title" value="" placeholder="Название">
           <input class="popup__text popup__text_edit_link" type="text" name="link"  value="" placeholder="Ссылка на картинку">

@@ -19,4 +19,7 @@
 * Псевдоклассы
 * Псевдоэлементы
 
-Ссылка на проект в GitHub https://github.com/chsergey80/mesto-project
+
+
+
+Ссылка на проект в GitHub https://jaki1965.github.io/mesto-project/
