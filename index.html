@@ -18,7 +18,7 @@
     
     <main class="content">
       
-      <section class="profile page__section">
+      <section class="profile">
         <div class="profile__container">
           <img src="./images/Jacques.jpg" class="profile__avatar" alt="Зрелый Жак-Ив Кусто любимец моря">
           <div class="profile__info">
@@ -36,14 +36,14 @@
       
     </main>
 
-    <footer class="footer page__section">
+    <footer class="footer">
       <p class="footer__copyright">&copy;2022 Mesto Russia</p>
     </footer>
 
     <div class="popup popup-profile">
       <div class="popup__container"> 
         <h2 class="popup__header">Редактировать профиль</h2>  
-        <button class="popup__button-close popup__button-close_profile" type="button"></button> 
+        <button class="popup__close popup__close_profile" type="button"></button> 
         <form class="popup__form popup__form_profile" name="profileEditing">
           <input class="popup__text popup__text_title" type="text" name="firstname" value="" placeholder="Ваше имя">
           <input class="popup__text popup__text_subtitle" type="text" name="subtitle" value="" placeholder="Ваш род занятий">
@@ -55,7 +55,7 @@
     <div class="popup popup-card">
       <div class="popup-card__container">
         <h2 class="popup-card__header">Новое место</h2>
-        <button class="popup__button-close popup__button-close_card" type="button" aria-label="Закрывает окно добавления карточки"></button>  
+        <button class="popup__close popup__close_card" type="button" aria-label="Закрывает окно добавления карточки"></button>  
         <form class="popup__form popup__form_card" name="cardEditing"> 
           <input class="popup__text popup__text_edit_name" type="text" name="title" value="" placeholder="Название">
           <input class="popup__text popup__text_edit_link" type="text" name="link"  value="" placeholder="Ссылка на картинку">
@@ -66,7 +66,7 @@
 
     <div class="popup popup-picture"> 
       <div class="popup-picture__container">
-        <button class="popup__button-close popup-picture__close" type="button" aria-label="Закрывает картинку Место"></button> 
+        <button class="popup__close popup-picture__close" type="button" aria-label="Закрывает картинку Место"></button> 
         <img class="popup-picture__picture"   src="https://travel.biletyplus.ru/wp-content/uploads/2015/09/tel-aviv.jpg" alt="">
         <p class="popup-picture__subtitle"></p>
       </div>

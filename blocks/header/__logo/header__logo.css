@@ -1,11 +1,14 @@
-.header__logo{
-    height: 33px;
-    shape-rendering: crispEdges;
-    padding: 45px 0 41px;
+.header__logo {
+  display: block;
+  object-fit: cover;
+  width: 142px;
+  height: 33px;
 }
-@media screen and (max-width: 1000px){
-    .header__logo{
-        padding: 28px 0 32px 27px;
-        height: 24px;
-    }
+
+@media screen and (max-width: 620px) {
+  .header__logo {
+    margin-left: 27px;
+    max-width: 103.74px;
+    height: 24.4px;
+  }
 }
