@@ -1,8 +1,8 @@
 .grid__list {
+  display: grid;
   margin: 0 auto;
   padding: 0;
   list-style: none;
-  display: grid;
   grid-template-columns: repeat(3, 282px);
   grid-template-rows: repeat(2, auto);
   grid-column-gap: 17px;
@@ -15,7 +15,6 @@
     grid-template-rows: repeat(3, auto);
   }
 }
-
 
 @media screen and (max-width: 620px) {
   .grid__list {
