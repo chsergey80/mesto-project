@@ -1,0 +1,7 @@
+.popup__text_type_active {
+  color: #FF0000;
+  margin: 0;
+  line-height: 15px;
+  font-size: 12px;
+  font-weight: 400;
+}
