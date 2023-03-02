@@ -1,8 +1,12 @@
-.profile__info{
-  padding-top: 18px;
-  display: grid;
-  grid-template-columns: 1fr 38px;
-  grid-template-rows: 39px 18px;
-  column-gap: 18px;
-  row-gap: 16px;
+.profile__info {
+  margin-top: 22px;
+  margin-left: 30px;
+}
+
+@media screen and (max-width: 920px) {
+  .profile__info {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 24px;
+  }
 }

@@ -1,14 +1,16 @@
 .profile{
   max-width: 880px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 36.25px 0 47.25px;
-  margin: 0 auto;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 37px 0 52px;
+  margin: auto;
 }
-@media screen and (max-width: 700px) {
+
+@media screen and (max-width: 920px) {
 .profile{
   flex-direction: column;
   padding: 36px 0 36px;
+  max-width: 282px;
 }
 }

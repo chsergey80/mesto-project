@@ -1,4 +1,3 @@
-/* общие стили popup-image - открывающаяся при клике картинка (изображение места) */
 .popup-image {
   visibility: hidden;
   opacity: 0;
