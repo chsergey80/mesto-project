@@ -1,7 +1,7 @@
 .element {
+  display: grid;
   margin: 0;
   padding: 0;
-  display: grid;
   grid-template-columns: 282px;
   grid-template-rows: 282px 79px;
   position: relative;

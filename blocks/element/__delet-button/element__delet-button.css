@@ -1,9 +1,9 @@
-/* кнопка - мусорная карзина - удаление карточки */
+/* кнопка - мусорная карзина*/
 .element__delet-button {
+  border: none;
   margin: 0;
   padding: 0;
   background-color: transparent;
-  border: none;
   width: 18px;
   height: 19px;
   margin-top: 15px;
