@@ -13,21 +13,21 @@
   <body class="page">
     
     <header class="header">
-      <img src="./images/Vector.svg" alt="Логотип проекта" class="header__logo">
+      <img src="<%=require('./images/Vector.svg')%>" alt="Логотип проекта" class="header__logo">
     </header>
     
     <main class="content">
       
       <section class="profile">
         <div class="profile__box-avatar">
-          <img src="./images/Jacques.jpg" class="profile__avatar" alt="Зрелый Жак-Ив Кусто любимец моря">
+          <img src="<%=require('./images/Jacques.jpg')%>" class="profile__avatar" alt="Аватар пользователя">
           <div class="profile__info">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
-            <button type="button" class="profile__edit-button"></button>
+            <button type="button" class="profile__edit-button" aria-label="Редактирует профиль пользователя"></button>
             <p class="profile__subtitle">Исследователь океана</p>
           </div>
         </div>
-          <button type="button" class="profile__add-button"></button>
+          <button type="button" class="profile__add-button" aria-label="Добаляет каточку"></button>
       </section>
       
       <section class="grid" aria-label="Секция содержащая карточки мест">
@@ -79,7 +79,7 @@
           <button class="element__delet-button" type="button" aria-label="Удаляет карточку"></button>
           <div class="element__footer">
             <h2 class="element__title"></h2>
-            <button class="element__button-heart " type="button" aria-label="Активирует знак сердечко - понравилось"></button>
+            <button class="element__button-heart " type="button" aria-label="Активирует знак сердечко"></button>
           </div>
         </article>
       </li>
