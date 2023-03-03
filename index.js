@@ -1,11 +1,14 @@
 // базовый файл JS
 import './pages/index.css';
+import {enableValidation, selectors} from "./components/validate.js";
+import {addCard, createCard, grid} from "./components/card.js";
+import {openPopup, closePopup, closeOverlayClick} from "./components/modal.js";
+import {handleFormProfileSubmit, handleFormSubmitCard, formCardElement, formProfile, nameInput, jobInput, profileTitle, profileSubTitle, profilePopup, cardPopup} from "./components/utils.js";
 
 const popups = document.querySelectorAll('.popup');  
 const profileOpenBotton = document.querySelector('.profile__edit-botton');
-const placeOpenButton = document.querySelector('.profile__add-botton'); //
+const cardOpenButton = document.querySelector('.profile__add-botton'); //
 const buttonsClose = document.querySelectorAll('.popup__close'); 
-
 const initialCards = [
   {
     name: 'Байкал',
@@ -33,3 +36,23 @@ const initialCards = [
   },
 ];
 
+initialCards.forEach(function(element){
+  const newCard = createCard(element.name, element.link); 
+  addCard(newCard, grid);
+  });
+enableValidation(selectors);
+closeOverlayClick(popups);
+formProfile.addEventListener('submit', handleFormProfileSubmit);
+formCardElement.addEventListener('submit', handleFormSubmitCard);
+profileOpenBotton.addEventListener('click', function(evt) {
+  nameInput.value = profileTitle.textContent;
+  jobInput.value = profileSubTitle.textContent;
+  openPopup(profilePopup);
+});
+cardOpenButton.addEventListener('click', function(evt){
+  openPopup(cardPopup);
+});
+buttonsClose.forEach((button) => {
+  const popup = button.closest('.popup');
+button.addEventListener('click', () => closePopup(popup));
+});
