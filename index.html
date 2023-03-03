@@ -40,35 +40,11 @@
       <p class="footer__copyright">&copy;2022 Mesto Russia</p>
     </footer>
 
-    <div class="popup popup-profile">
-      <div class="popup__container"> 
-        <h2 class="popup__header">Редактировать профиль</h2>  
-        <button class="popup__close popup__close_profile" type="button"></button> 
-        <form class="popup__form popup__form_profile" name="profileEditing">
-          <input class="popup__text popup__text_title" type="text" name="firstname" value="" placeholder="Ваше имя">
-          <input class="popup__text popup__text_subtitle" type="text" name="subtitle" value="" placeholder="Ваш род занятий">
-          <input class="popup__button" type="submit"  value="Сохранить">
-        </form>
-      </div>
-    </div>
-
-    <div class="popup popup-card">
-      <div class="popup-card__container">
-        <h2 class="popup-card__header">Новое место</h2>
-        <button class="popup__close popup__close_card" type="button" aria-label="Закрывает окно добавления карточки"></button>  
-        <form class="popup__form popup__form_card" name="cardEditing"> 
-          <input class="popup__text popup__text_edit_name" type="text" name="title" value="" placeholder="Название">
-          <input class="popup__text popup__text_edit_link" type="text" name="link"  value="" placeholder="Ссылка на картинку">
-          <button class="popup__button popup-card__button" type="submit" aria-label="Вносит карточку в проект">Сохранить</button>
-        </form>
-      </div>
-    </div>
-
-    <div class="popup popup-picture"> 
-      <div class="popup-picture__container">
-        <button class="popup__close popup-picture__close" type="button" aria-label="Закрывает картинку Место"></button> 
-        <img class="popup-picture__picture"   src="https://travel.biletyplus.ru/wp-content/uploads/2015/09/tel-aviv.jpg" alt="">
-        <p class="popup-picture__subtitle"></p>
+    <div class="popup popup-image">
+      <div class="popup-image__container">
+        <button class="popup__close popup-image__close" type="button" aria-label="Закрывает изображение"></button> 
+        <img class="popup-image__image"   src="https://nn.pannomd.ru/goods/or_6103.jpg" alt="">
+        <p class="popup-image__subtitle"></p>
       </div>
     </div>
 
@@ -85,7 +61,86 @@
       </li>
     </template>
 
-    <script src="js/script.js"></script>
+
+    <div class="popup popup-profile">
+      <div class="popup__container">
+        <h2 class="popup__header">Редактировать профиль</h2>
+        <button class="popup__close popup-profile__close" type="button" aria-label="Закрывает окно редактирования профиля"></button>
+        <form class="popup__form popup-profile__form" name="profileEditing" novalidate>
+          <input 
+          id="popup-text-name" 
+          type="text"
+          class="popup__text popup__text_edit_name" 
+          name="name" 
+          pattern="^[a-zA-Zа-яА-ЯёЁ0-9\s\-]+$" 
+          value="" 
+          placeholder="Ваше имя" 
+          required 
+          minlength="2" 
+          maxlength="40" 
+          data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы">
+          <span class="popup__text-error popup-text-name-error"></span>
+          <input 
+          id="popup-text-career"
+          type="text"
+          class="popup__text popup__text_edit_career"
+          name="career" 
+          pattern="^[a-zA-Zа-яА-ЯёЁ0-9\s\-]+$"
+          value="" 
+          placeholder="Ваше род занятий"
+          required 
+          minlength="2" 
+          maxlength="200" 
+          data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы">
+          <span class="popup__text-error popup-text-career-error"></span>
+          <button class="popup__button popup-profile__button" type="submit" aria-label="Отправлет отредактированные данные на сервер">Сохранить</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup popup-card">
+      <div class="popup-card__container">
+        <h2 class="popup-card__header">Новое место</h2>
+        <button class="popup__close popup__close_card" type="button" aria-label="Закрывает окно добавления карточки"></button>  
+        <form class="popup__form popup__form_card" name="cardEditing"> 
+          <input class="popup__text popup__text_edit_name" type="text" name="title" value="" placeholder="Название">
+          <input class="popup__text popup__text_edit_link" type="text" name="link"  value="" placeholder="Ссылка на картинку">
+          <button class="popup__button popup-card__button" type="submit" aria-label="Вносит карточку в проект">Сохранить</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup popup-card">  
+      <div class="popup-card__container">
+        <h2 class="popup-card__header">Новое место</h2>
+        <button class="popup__close popup-card__close" type="button" aria-label="Закрывает окно добавления карточки"></button> 
+        <form class="popup__form popup-card__form" name="cardEditing" novalidate>
+          <input
+          id="popup-text-card"
+          type="text"
+          class="popup__text popup-card__text_edit_title" 
+          name="title"
+          pattern="^[a-zA-Zа-яА-ЯёЁ0-9\s\-]+$"
+          value=""
+          placeholder="Название"
+          required
+          minlength="2" 
+          maxlength="30" 
+          data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы">
+          <span class="popup__text-error popup-text-card-error"></span>
+          <input
+          id="popup-text-link"
+          type="url"
+          class="popup__text popup-card__text_edit_link" 
+          name="link"
+          value=""
+          placeholder="Ссылка на картинку"
+          required>
+          <span class="popup__text-error popup-text-link-error"></span>
+          <button class="popup__button popup-card__button" type="submit" aria-label="Вносит карточку на сайт, на первое место">Сохранить</button>
+        </form>
+      </div>
+    </div>
 
   </body>
 
