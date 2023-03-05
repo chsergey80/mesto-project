@@ -1,4 +1,3 @@
-/* модуль работы с модальными оконами */
 function closeOverlayClick(popup) {
   const popupClick = Array.from(popup);
   popupClick.forEach((popup) => {
@@ -14,14 +13,16 @@ function closeByEsc(evt) {
     const openedPopup = document.querySelector('.popup_opened');
     closePopup(openedPopup);
   }
-}
-function openPopup(popup) {
-  popup.classList.add('popup_opened');
-  document.addEventListener('keydown', closeByEsc);
 };
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', closeByEsc);
 };
-
-export {openPopup, closePopup, closeOverlayClick};
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closeByEsc);
+};
+export {
+  openPopup,
+  closePopup,
+  closeOverlayClick};

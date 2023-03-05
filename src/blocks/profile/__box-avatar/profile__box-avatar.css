@@ -4,7 +4,7 @@
 }
 
 @media screen and (max-width: 920px) {
-  .profile__box-avatar-info {
+  .profile__box-avatar {
     flex-direction: column;
   }
 }

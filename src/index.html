@@ -8,45 +8,32 @@
     <meta name="author" content="Сергей Часовников">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title lang="en">Mesto</title>
-    <link rel="stylesheet" href="./pages/index.css">
   </head>
   <body class="page">
-    
     <header class="header">
       <img src="<%=require('./images/Vector.svg')%>" alt="Логотип проекта" class="header__logo">
     </header>
-    
     <main class="content">
-      
       <section class="profile">
         <div class="profile__box-avatar">
           <img src="<%=require('./images/Jacques.jpg')%>" class="profile__avatar" alt="Аватар пользователя">
           <div class="profile__info">
-            <h1 class="profile__title">Жак-Ив Кусто</h1>
-            <button type="button" class="profile__edit-button" aria-label="Редактирует профиль пользователя"></button>
-            <p class="profile__subtitle">Исследователь океана</p>
+            <div class="profile__title-button">
+              <h1 class="profile__title">Жак-Ив Кусто</h1>
+              <button type="button" class="profile__edit-button" aria-label="Редактирует профиль пользователя"></button>
+            </div>
+            <p class="profile__subtitle">Исследователь океана</p>            
           </div>
         </div>
-          <button type="button" class="profile__add-button" aria-label="Добаляет каточку"></button>
+        <button type="button" class="profile__add-button" aria-label="Добаляет каточку"></button>
       </section>
-      
       <section class="grid" aria-label="Секция содержащая карточки мест">
         <ul class="grid__list"></ul>
       </section>
-      
     </main>
-
     <footer class="footer">
       <p class="footer__copyright">&copy;2022 Mesto Russia</p>
     </footer>
-
-    <div class="popup popup-image">
-      <div class="popup-image__container">
-        <button class="popup__close popup-image__close" type="button" aria-label="Закрывает изображение"></button> 
-        <img class="popup-image__image"   src="https://nn.pannomd.ru/goods/or_6103.jpg" alt="">
-        <p class="popup-image__subtitle"></p>
-      </div>
-    </div>
 
     <template id="templateCard">
       <li class="grid__list-cell">
@@ -60,6 +47,14 @@
         </article>
       </li>
     </template>
+
+    <div class="popup popup-images">
+      <div class="popup-image__container">
+        <button class="popup__close popup-image__close" type="button" aria-label="Закрывает изображение"></button> 
+        <img class="popup-image__image" src="https://nn.pannomd.ru/goods/or_6103.jpg" alt="">
+        <p class="popup-image__subtitle"></p>
+      </div>
+    </div>
 
     <div class="popup popup-profile">
       <div class="popup__container">
@@ -97,7 +92,7 @@
       </div>
     </div>
 
-    <div class="popup popup-card">  
+    <div class="popup popup-cards">
       <div class="popup-card__container">
         <h2 class="popup-card__header">Новое место</h2>
         <button class="popup__close popup-card__close" type="button" aria-label="Закрывает окно добавления карточки"></button> 
@@ -129,6 +124,6 @@
       </div>
     </div>
 
-  </body>
 
+  </body>
 </html>

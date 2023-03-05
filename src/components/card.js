@@ -1,11 +1,11 @@
-/* модуль работы с карточками */
-import { openPopup } from "./modal.js";  
+import {
+  openPopup } from "./modal.js";
 
-const popupImg = document.querySelector('.popup-image');   // принимает элемент попап открытия изображения
-const popupPicture = document.querySelector('.popup-image__image');  // принимает элемент в котром хранится изображение места
-const popupSubtitle = document.querySelector('.popup-image__subtitle');  // принимает элемент - подпись (название места ) в попап изображения
-const gridTemplateCell = document.querySelector('#myTemplateOne').content; // принимает клон элемента #myTemplateOne - ячейка сетки //
-const grid = document.querySelector('.grid__list'); // принимает обертку под сетку из карточек //
+const popupImg = document.querySelector('.popup-images');
+const popupPicture = document.querySelector('.popup-image__image');
+const popupSubtitle = document.querySelector('.popup-image__subtitle'); 
+const gridTemplateCell = document.querySelector('#templateCard').content;
+const grid = document.querySelector('.grid__list');
 
 function removeCard(evt){
   evt.target.closest('.grid__list-cell').remove();
@@ -18,7 +18,7 @@ function openImgPopup(evt){
   popupPicture.alt = evt.target.alt;
   popupSubtitle.textContent = evt.target.alt;
   openPopup(popupImg);
-  };
+};
 function createCard(name, link){
   const cardElement = gridTemplateCell.querySelector('.grid__list-cell').cloneNode(true); 
   const elementImage = cardElement.querySelector('.element__image');
@@ -34,4 +34,7 @@ function addCard(card, box) {
 box.prepend(card);
 };
 
-export { addCard, createCard, grid };
+export { 
+  addCard,
+  createCard,
+  grid };

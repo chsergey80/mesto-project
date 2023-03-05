@@ -1,5 +1,4 @@
-/* модуль валидации форм */
-const selectors = {
+const settings = {
   formSelector: '.popup__form',
   inputSelector: '.popup__text',
   submitButtonSelector: '.popup__button',
@@ -7,16 +6,16 @@ const selectors = {
   inputErrorClass: 'popup__text_type_error',
   errorClass: 'popup__text_type_active'
 }; 
-function showError(formElement, inputElement, errorMessage, selectors) {
+function showError(formElement, inputElement, errorMessage, settings) {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.add(selectors.inputErrorClass);
-  errorElement.textContent = errorMessage;
-  errorElement.classList.add(selectors.errorClass);
+  inputElement.classList.add(settings.inputErrorClass);
+  errorElement.textContent = inputElement.dataset.errorMessage;
+  errorElement.classList.add(settings.errorClass);
 };
-function hideError(formElement, inputElement, selectors) {
+function hideError(formElement, inputElement, settings) {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove(selectors.inputErrorClass);
-  errorElement.classList.remove(selectors.errorClass);
+  inputElement.classList.remove(settings.inputErrorClass);
+  errorElement.classList.remove(settings.errorClass);
   errorElement.textContent = '';
 };
 function checkInputValid(formElement, inputElement) {
@@ -26,9 +25,9 @@ function checkInputValid(formElement, inputElement) {
     inputElement.setCustomValidity("");
   }
   if (!inputElement.validity.valid) {
-    showError(formElement, inputElement, inputElement.validationMessage, selectors);
+    showError(formElement, inputElement, inputElement.validationMessage, settings);
   } else {
-    hideError(formElement, inputElement, selectors);
+    hideError(formElement, inputElement, settings);
   };
 };
 function hasInvalidInput(inputList) {
@@ -36,39 +35,39 @@ function hasInvalidInput(inputList) {
     return !inputElement.validity.valid;
   });
 }; 
-function toggleButtonState(inputList, buttonElement, selectors) {
+function toggleButtonState(inputList, buttonElement, settings) {
   if (hasInvalidInput(inputList)) {
     buttonElement.disabled = true;
-    buttonElement.classList.add(selectors.inactiveButtonClass);
+    buttonElement.classList.add(settings.inactiveButtonClass);
   } else {
     buttonElement.disabled = false;
-    buttonElement.classList.remove(selectors.inactiveButtonClass); 
+    buttonElement.classList.remove(settings.inactiveButtonClass); 
   };
 };
-function setEventListener(formElement, selectors) {
-  const inputList = Array.from(formElement.querySelectorAll(selectors.inputSelector)); 
-  const buttonElement = formElement.querySelector(selectors.submitButtonSelector); 
-  toggleButtonState(inputList, buttonElement, selectors);
+function setEventListener(formElement, settings) {
+  const inputList = Array.from(formElement.querySelectorAll(settings.inputSelector)); 
+  const buttonElement = formElement.querySelector(settings.submitButtonSelector); 
+  toggleButtonState(inputList, buttonElement, settings);
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', () => {
       checkInputValid(formElement, inputElement);
-      toggleButtonState(inputList, buttonElement, selectors);
+      toggleButtonState(inputList, buttonElement, settings);
     });
   });
   formElement.addEventListener('reset', () => {
     setTimeout(() => {
-      toggleButtonState(inputList, buttonElement, selectors), 0
+      toggleButtonState(inputList, buttonElement, settings), 0
     });
   });
 };
-function enableValidation(selectors) {
-  const formList = Array.from(document.querySelectorAll(selectors.formSelector));
+function enableValidation(settings) {
+  const formList = Array.from(document.querySelectorAll(settings.formSelector));
   formList.forEach((formElement) => {
     formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
     });
-    setEventListener(formElement, selectors);
+    setEventListener(formElement, settings);
   });
 };
 
-export { enableValidation, selectors }
+export { enableValidation, settings }
