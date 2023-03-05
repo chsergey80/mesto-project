@@ -1,3 +1,4 @@
 .popup__button_inactive {
   opacity: 20%;
+  cursor: default;    /*1 ревью Исправлено */
 }
