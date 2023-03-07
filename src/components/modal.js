@@ -1,3 +1,9 @@
+const buttonsClose = document.querySelectorAll('.popup__close');
+
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeByEsc);
+};
 function closeOverlayClick(popup) {
   const popupClick = Array.from(popup);
   popupClick.forEach((popup) => {
@@ -14,15 +20,20 @@ function closeByEsc(evt) {
     closePopup(openedPopup);
   }
 };
-function closePopup(popup) {
-  popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', closeByEsc);
-};
 function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', closeByEsc);
 };
+
+function handleCloseButton(){
+buttonsClose.forEach((button) => {
+  const popup = button.closest('.popup');
+  button.addEventListener('click', () => closePopup(popup));
+});
+};
+
 export {
   openPopup,
+  handleCloseButton,
   closePopup,
   closeOverlayClick};

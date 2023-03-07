@@ -70,7 +70,7 @@
           value="" 
           placeholder="Ваше имя" 
           required 
-          minlength="2" 
+          minlength="1" 
           maxlength="40" 
           data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы" required>
           <span class="popup__text-error popup-text-name-error"></span>
@@ -79,11 +79,11 @@
           type="text"
           class="popup__text popup__text_edit_career"
           name="career" 
-          pattern="^[a-zA-Zа-яА-ЯёЁ0-9\s\-]+$"
+          pattern="^[a-zA-ZаА-яЯёЁ\s\-]+$"
           value="" 
-          placeholder="Ваше род занятий"
+          placeholder="О себе"
           required 
-          minlength="2" 
+          minlength="1" 
           maxlength="200" 
           data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы" required>
           <span class="popup__text-error popup-text-career-error"></span>
@@ -102,11 +102,11 @@
           type="text"
           class="popup__text popup-card__text_edit_title" 
           name="title"
-          pattern="^[a-zA-Zа-яА-ЯёЁ0-9\s\-]+$"
+          pattern="^[a-zA-ZаА-яЯёЁ\s\-]+$"
           value=""
           placeholder="Название"
           required
-          minlength="2" 
+          minlength="1" 
           maxlength="30" 
           data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы" required>
           <span class="popup__text-error popup-text-card-error"></span>
@@ -115,9 +115,10 @@
           type="url"
           class="popup__text popup-card__text_edit_link" 
           name="link"
+          pattern="'|(http://[a-zA-Z0-9_\./]+)|'"
           value=""
           placeholder="Ссылка на картинку"
-          required>
+          data-error-message="Введите адрес сайта" required>
           <span class="popup__text-error popup-text-link-error"></span>
           <button class="popup__button popup-card__button" type="submit" aria-label="Вносит карточку на сайт, на первое место">Создать</button>
         </form>

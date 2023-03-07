@@ -13,10 +13,11 @@ function removeCard(evt){
 function markHeart(evt){
   evt.target.classList.toggle('element__button-heart_dark');
 };
-function openImgPopup(evt){
-  popupPicture.src = evt.target.src;
-  popupPicture.alt = evt.target.alt;
-  popupSubtitle.textContent = evt.target.alt;
+function openImgPopup(name, link){    /*1 ревью Исправлено */
+  popupPicture.src = link;    /*1 ревью Исправлено */
+  popupPicture.alt = name;    /*1 ревью Исправлено */
+  popupSubtitle.textContent = name;
+  document.querySelector('.popup').style.backgroundColor = "rgba(0, 0, 0, .8)";    /*1 ревью Исправлено */
   openPopup(popupImg);
 };
 function createCard(name, link){
@@ -27,7 +28,7 @@ function createCard(name, link){
   cardElement.querySelector('.element__title').textContent = name;
   cardElement.querySelector('.element__delet-button').addEventListener('click', removeCard);
   cardElement.querySelector('.element__button-heart').addEventListener('click', markHeart);
-  elementImage.addEventListener('click', openImgPopup);
+  elementImage.addEventListener('click', ()=> {openImgPopup(name, link)});    /*1 ревью Исправлено */
   return cardElement;
 };
 function addCard(card, box) {

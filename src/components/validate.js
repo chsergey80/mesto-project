@@ -60,14 +60,7 @@ function setEventListener(formElement, settings) {
     });
   });
 };
-function enableValidation(settings) {
-  const formList = Array.from(document.querySelectorAll(settings.formSelector));
-  formList.forEach((formElement) => {
-    formElement.addEventListener('submit', (evt) => {
-      evt.preventDefault();
-    });
-    setEventListener(formElement, settings);
-  });
-};
 
-export { enableValidation, settings }
+export { 
+  setEventListener,
+  settings };

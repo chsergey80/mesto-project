@@ -2,3 +2,7 @@
   opacity: 20%;
   cursor: default;    /*1 ревью Исправлено */
 }
+
+.popup__button:hover{
+  opacity: 20%;    /*1 ревью Исправлено */
+}
