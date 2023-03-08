@@ -1,8 +1,13 @@
 .popup__button_inactive {
+  background-color: transparent;    /*1 ревью Исправлено */
+  border: 1px solid #000000;    /*1 ревью Исправлено */
+  border-radius: 2px;    /*1 ревью Исправлено */
+  color: #000000;    /*1 ревью Исправлено */
   opacity: 20%;
   cursor: default;    /*1 ревью Исправлено */
 }
 
 .popup__button:hover{
+  transition: 0.35s;
   opacity: 20%;    /*1 ревью Исправлено */
 }

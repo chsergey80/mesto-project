@@ -70,7 +70,7 @@
           value="" 
           placeholder="Ваше имя" 
           required 
-          minlength="1" 
+          minlength="2" 
           maxlength="40" 
           data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы" required>
           <span class="popup__text-error popup-text-name-error"></span>
@@ -83,7 +83,7 @@
           value="" 
           placeholder="О себе"
           required 
-          minlength="1" 
+          minlength="2" 
           maxlength="200" 
           data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы" required>
           <span class="popup__text-error popup-text-career-error"></span>
@@ -106,7 +106,7 @@
           value=""
           placeholder="Название"
           required
-          minlength="1" 
+          minlength="2" 
           maxlength="30" 
           data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы" required>
           <span class="popup__text-error popup-text-card-error"></span>
@@ -115,7 +115,7 @@
           type="url"
           class="popup__text popup-card__text_edit_link" 
           name="link"
-          pattern="'|(http://[a-zA-Z0-9_\./]+)|'"
+          pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$"
           value=""
           placeholder="Ссылка на картинку"
           data-error-message="Введите адрес сайта" required>
