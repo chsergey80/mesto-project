@@ -9,7 +9,7 @@ const settings = {
 function showError(formElement, inputElement, errorMessage, settings) {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add(settings.inputErrorClass);
-  errorElement.textContent = inputElement.dataset.errorMessage;
+  errorElement.textContent = errorMessage;    /*2 ревью Исправлено */
   errorElement.classList.add(settings.errorClass);
 };
 function hideError(formElement, inputElement, settings) {

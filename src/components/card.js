@@ -17,7 +17,7 @@ function openImgPopup(name, link){    /*1 ревью Исправлено */
   popupPicture.src = link;    /*1 ревью Исправлено */
   popupPicture.alt = name;    /*1 ревью Исправлено */
   popupSubtitle.textContent = name;
-  document.querySelector('.popup').style.backgroundColor = "rgba(0, 0, 0, .8)";    /*1 ревью Исправлено */
+//  document.querySelector('.popup').style.backgroundColor = "rgba(0, 0, 0, .8)";    /*2 ревью Исправлено, будет удалено */
   openPopup(popupImg);
 };
 function createCard(name, link){
