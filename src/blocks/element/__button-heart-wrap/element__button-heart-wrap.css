@@ -1,0 +1,5 @@
+.element__button-heart-wrap  {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
