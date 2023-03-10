@@ -1,9 +1,10 @@
 .popup__text-name-error {
+  visibility:hidden;
   font-family: "Inter", "Arial", sans-serif;
   font-style: normal;
   color: #ff0000;
   font-weight: 400;
   font-size: 12px;
   line-height: 15px;
-  visibility:hidden;
+
 }
