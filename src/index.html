@@ -48,6 +48,25 @@
       </li>
     </template>
 
+    <div class="popup popup-avatar">
+      <div class="popup__container">
+        <h2 class="popup__header">Обновить аватар</h2>
+        <button class="popup__close popup-avatar__close" type="button" aria-label="Закрывает окно редактирования аватра"></button>
+        <form class="popup__form popup-avatar__form" name="avatarEditing" novalidate>
+          <input
+          id="popup-text-avatar"
+          class="popup__text popup-avatar__text_edit_link" 
+          type="url" 
+          name="avatar"  
+          value=""
+          placeholder="Ссылка на аватар"
+          required>
+          <span class="popup__text-error popup-text-avatar-error"></span>
+          <button class="popup__button popup-avatar__button" type="submit" aria-label="Отправлет ссылку на картинку аватара на сервер">Сохранить</button>
+        </form>
+      </div>
+    </div>
+
     <div class="popup popup-images">
       <div class="popup-image__container">
         <button class="popup__close popup-image__close" type="button" aria-label="Закрывает изображение"></button> 
