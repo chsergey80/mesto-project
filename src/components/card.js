@@ -1,8 +1,12 @@
 import {
   openPopup } from "./modal.js";
+import {
+  delCard,
+  addLike,
+  delLike } from "./api.js";
 
 const popupImg = document.querySelector('.popup-images');
-const popupPicture = document.querySelector('.popup-image__image');
+const popupImage = document.querySelector('.popup-image__image');
 const popupSubtitle = document.querySelector('.popup-image__subtitle'); 
 const gridTemplateCell = document.querySelector('#templateCard').content;
 const grid = document.querySelector('.grid__list');
@@ -13,29 +17,64 @@ function removeCard(evt){
 function markHeart(evt){
   evt.target.classList.toggle('element__button-heart_dark');
 };
-function openImgPopup(name, link){    /*1 ревью Исправлено */
-  popupPicture.src = link;    /*1 ревью Исправлено */
-  popupPicture.alt = name;    /*1 ревью Исправлено */
-  popupSubtitle.textContent = name;
-//  document.querySelector('.popup').style.backgroundColor = "rgba(0, 0, 0, .8)";    /*2 ревью Исправлено, будет удалено */
+function openImgPopup(evt){
+  popupImage.src = evt.target.src;
+  popupImage.alt = evt.target.alt;
+  popupSubtitle.textContent = evt.target.alt;
   openPopup(popupImg);
 };
-function createCard(name, link){
+
+function createCard(card, user){
   const cardElement = gridTemplateCell.querySelector('.grid__list-cell').cloneNode(true); 
   const elementImage = cardElement.querySelector('.element__image');
-  elementImage.src = link;
-  elementImage.alt = name;
-  cardElement.querySelector('.element__title').textContent = name;
-  cardElement.querySelector('.element__delet-button').addEventListener('click', removeCard);
-  cardElement.querySelector('.element__button-heart').addEventListener('click', markHeart);
-  elementImage.addEventListener('click', ()=> {openImgPopup(name, link)});    /*1 ревью Исправлено */
+  const buttonDel = cardElement.querySelector('.element__delet-button');
+  const buttnHeart = cardElement.querySelector('.element__button-heart');
+  const counterLike = cardElement.querySelector('.element__button-heart-count');
+  elementImage.src = card.link;
+  elementImage.alt = card.name;
+  cardElement.querySelector('.element__title').textContent = card.name;
+  if (user.id !== card.owner._id){
+    buttonDel.classList.add('element__delet-button-inactive');
+  };
+  buttonDel.addEventListener('click', (evt) => {delCard(card._id)
+    .then(() => { removeCard(evt)})
+    .catch((err) => {
+      console.log(err);
+    })
+  }
+  );
+  counterLike.textContent = card.likes.length;
+  card.likes.forEach(() => {
+    if(card.likes._id === user._id){
+      buttnHeart.classList.add('element__button-heart_dark')
+    };
+  });
+
+  buttnHeart.addEventListener('click', (evt) => {
+    if(!evt.target.classList.contains('element__button-heart_dark')){
+      addLike(card._id)
+      .then((data) => {
+        markHeart(evt);
+        counterLike.textContent = data.likes.length;
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+    }else{delLike(card._id)
+      .then((data) => {
+        markHeart(evt);
+        counterLike.textContent = data.likes.length;
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+    }
+  })
+  
+  elementImage.addEventListener('click', openImgPopup);
   return cardElement;
 };
-function addCard(card, box) {
-box.prepend(card);
-};
 
-export { 
-  addCard,
+export {
   createCard,
   grid };

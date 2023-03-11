@@ -16,7 +16,8 @@
     <main class="content">
       <section class="profile">
         <div class="profile__box-avatar">
-          <img src="<%=require('./images/Jacques.jpg')%>" class="profile__avatar" alt="Аватар пользователя">
+          <img src="<%=require('./images/Jacques.jpg')%>" class="profile__avatar profile__avatar_disable" alt="Аватар пользователя">
+          <button class="profile__avatar-edit-button" type="button" aria-label="Редактирует аватар позователя"></button>
           <div class="profile__info">
             <div class="profile__title-button">
               <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -42,7 +43,10 @@
           <button class="element__delet-button" type="button" aria-label="Удаляет карточку"></button>
           <div class="element__footer">
             <h2 class="element__title"></h2>
-            <button class="element__button-heart " type="button" aria-label="Активирует знак сердечко"></button>
+            <div class="element__button-heart-wrap">
+              <button class="element__button-heart " type="button" aria-label="Активирует знак сердечко - понравилось"></button>
+              <div class="element__button-heart-count"></div>
+            </div>
           </div>
         </article>
       </li>
@@ -143,7 +147,6 @@
         </form>
       </div>
     </div>
-
 
   </body>
 </html>

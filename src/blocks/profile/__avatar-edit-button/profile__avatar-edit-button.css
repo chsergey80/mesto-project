@@ -1,4 +1,4 @@
-.profile__avatar-edit-botton {
+.profile__avatar-edit-button {
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
@@ -7,12 +7,12 @@
   height: 120px;
   background-image: url(../../../images/avatar_pan.svg);
   position: absolute;
-  top: 0;
-  left: 0;
+  /*top: 0;
+  left: 0;*/
   transition: 0.3s;
   opacity: 0;
 }
 
-.profile__avatar-edit-botton:hover {
+.profile__avatar-edit-button:hover {
   opacity: 1;
 }
