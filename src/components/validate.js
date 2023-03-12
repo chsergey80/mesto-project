@@ -9,7 +9,7 @@ const settings = {
 function showError(formElement, inputElement, errorMessage, settings) {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add(settings.inputErrorClass);
-  errorElement.textContent = errorMessage;    /*2 ревью Исправлено */
+  errorElement.textContent = errorMessage;
   errorElement.classList.add(settings.errorClass);
 };
 function hideError(formElement, inputElement, settings) {
@@ -18,7 +18,7 @@ function hideError(formElement, inputElement, settings) {
   errorElement.classList.remove(settings.errorClass);
   errorElement.textContent = '';
 };
-function checkInputValid(formElement, inputElement) {
+function checkInputValid(formElement, inputElement, settings) {
   if (inputElement.validity.patternMismatch) {
     inputElement.setCustomValidity(inputElement.dataset.errorMessage);
   } else {
@@ -46,11 +46,11 @@ function toggleButtonState(inputList, buttonElement, settings) {
 };
 function setEventListener(formElement, settings) {
   const inputList = Array.from(formElement.querySelectorAll(settings.inputSelector)); 
-  const buttonElement = formElement.querySelector(settings.submitButtonSelector); 
+  const buttonElement = formElement.querySelector(settings.submitButtonSelector);
   toggleButtonState(inputList, buttonElement, settings);
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', () => {
-      checkInputValid(formElement, inputElement);
+      checkInputValid(formElement, inputElement, settings);
       toggleButtonState(inputList, buttonElement, settings);
     });
   });
@@ -61,12 +61,12 @@ function setEventListener(formElement, settings) {
   });
 };
 function enableValidation(settings) {
-  const formList = Array.from(document.querySelectorAll(settings.formSelector));  
-  formList.forEach((formElement) => {                                        
-    formElement.addEventListener('submit', (evt) => {                       
-      evt.preventDefault();                                                                       
+  const formList = Array.from(document.querySelectorAll(settings.formSelector));
+  formList.forEach((formElement) => {
+    formElement.addEventListener('submit', (evt) => {
+      evt.preventDefault();
     });
-    setEventListener(formElement, settings);     
+    setEventListener(formElement, settings);
   });
 };
 

@@ -1,134 +1,83 @@
-const chogort = 'plus-cohort-20';
-const token = '29600cd5-0570-4443-bea9-c82d8e096704';
+import {
+  checkResponse
+} from "./utils";
+
+const config = {
+  baseUrl: 'https://nomoreparties.co/v1/plus-cohort-20',
+  headers: {
+    authorization: '29600cd5-0570-4443-bea9-c82d8e096704',
+    'Content-Type': 'application/json',
+  },
+};
+
+function request(url, options) {
+  return fetch(url, options).then(checkResponse);
+}
 
 const getUsersData = () => {
-  return fetch(`https://nomoreparties.co/v1/${chogort}/users/me`, {
-  headers: {
-    authorization: `${token}`
-  },
-  })
-  .then((res) => {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`);
+  return request(`${config.baseUrl}/users/me`, {
+    headers: config.headers
   })
 };
 
 const getCards = () => {
-  return fetch(`https://nomoreparties.co/v1/${chogort}/cards `, {
-    headers: {
-      authorization: `${token}`
-    },
+  return request(`${config.baseUrl}/cards`, {
+    headers: config.headers
   })
-  .then((res) => {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`);
-  }) 
 };
 
 const passProfileDate = (profileTitle, profileSubTitle) => {
-  return fetch(`https://nomoreparties.co/v1/${chogort}/users/me`, {
-    method: 'PATCH',  
-    headers: {
-      authorization: `${token}`,
-      'Content-Type': 'application/json'
-    },
+  return request(`${config.baseUrl}/users/me`, {
+    method: 'PATCH',
+    headers: config.headers,
     body: JSON.stringify({
-      name: profileTitle ,
+      name: profileTitle,
       about: profileSubTitle
-    })})
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
     })
-};
+  })
+}
 
 const passNewCard = (name, link) => {
-  return fetch(`https://nomoreparties.co/v1/${chogort}/cards`, {
-    method: 'POST',  
-    headers: {
-      authorization: `${token}`,
-      'Content-Type': 'application/json'
-    },
+  return request(`${config.baseUrl}/cards`, {
+    method: 'POST',
+    headers: config.headers,
     body: JSON.stringify({
-      name: name ,
+      name: name,
       link: link
-    })})
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
     })
+  })
 };
 
 const delCard = (cardId) => {
-    return fetch(`https://nomoreparties.co/v1/${chogort}/cards/${cardId}`, {
-    method: 'DELETE',  
-    headers: {
-      authorization: `${token}`,
-    },
-  })
-  .then((res) => {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`);
+  return request(`${config.baseUrl}/cards/${cardId}`, {
+    method: 'DELETE',
+    headers: config.headers,
   })
 };
 
 const addLike = (cardId) => {
-  return fetch(`https://nomoreparties.co/v1/${chogort}/cards/likes/${cardId}`, {
-    method: 'PUT',  
-    headers: {
-      authorization: `${token}`,
-    },
-  })
-  .then((res) => {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`);
+  return request(`${config.baseUrl}/cards/likes/${cardId}`, {
+    method: 'PUT',
+    headers: config.headers,
   })
 };
 
 const delLike = (cardId) => {
-  return fetch(`https://nomoreparties.co/v1/${chogort}/cards/likes/${cardId}`, {
-    method: 'DELETE',  
-    headers: {
-      authorization: `${token}`,
-    },
-  })
-  .then((res) => {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`);
+  return request(`${config.baseUrl}/cards/likes/${cardId}`, {
+    method: 'DELETE',
+    headers: config.headers,
   })
 };
 
 const addAvatar = (avatar) => {
-  return fetch(`https://nomoreparties.co/v1/${chogort}/users/me/avatar`, {
-    method: 'PATCH',  
-    headers: {
-      authorization: `${token}`,
-      'Content-Type': 'application/json'
-    },
+  return request(`${config.baseUrl}/users/me/avatar`, {
+    method: 'PATCH',
+    headers: config.headers,
     body: JSON.stringify({
       avatar: avatar
-    })})
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
     })
-}
+  })
+};
 
 export{
   getUsersData,

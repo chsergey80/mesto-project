@@ -50,7 +50,6 @@ Promise.all([getUsersData(), getCards()])
     console.log(err); 
   });
 
-getUsersData(); 
 enableValidation(settings);
 closeOverlayClick(popups);
 

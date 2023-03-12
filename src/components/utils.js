@@ -28,12 +28,19 @@ const buttonSumitProfile = document.querySelector('.popup-profile__button');
 const buttonSumitCard = document.querySelector('.popup-card__button');
 const buttonSumitAvatar = document.querySelector('.popup-avatar__button');
 
-const  renderLoading = (isLoading, button) => {
-  if(isLoading){
-    button.textContent = 'Сохранение...';
-  }else{
-    button.textContent = 'Сохранить';
+const renderLoading = (isLoading, button, buttonText = 'Сохранить', loadingText = 'Сохранение...') => {
+  if (isLoading) {
+    button.textContent = loadingText;
+  } else {
+    button.textContent = buttonText;
   };
+};
+
+function checkResponse(res) {
+  if (res.ok) {
+    return res.json();
+  }
+  return Promise.reject(`Ошибка: ${res.status}`);
 };
 
 function handleFormProfileSubmit(evt) {
@@ -44,6 +51,7 @@ function handleFormProfileSubmit(evt) {
     profileTitle.textContent = res.name;
     profileSubTitle.textContent = res.about;
     closePopup(profilePopup);
+    evt.target.reset();
   })
   .catch((err) => {
     console.log(err);
@@ -51,7 +59,6 @@ function handleFormProfileSubmit(evt) {
   .finally(() => {
     renderLoading(false, buttonSumitProfile);
   })
-  evt.target.reset();
 };
  
 function handleFormSubmitCard(evt) {
@@ -60,15 +67,15 @@ function handleFormSubmitCard(evt) {
   passNewCard(inputCardTitle.value, inputCardLink.value)
   .then((card) => {
     grid.prepend(createCard(card, profile));
-    closePopup(cardPopup)
+    closePopup(cardPopup);
+    evt.target.reset();
   })
   .catch((err) => {
     console.log(err);
   })
   .finally(() => {
     renderLoading(false, buttonSumitCard);
-  }); 
-  evt.target.reset();
+  });
 };
 
 function handleFormSubmitAvatar(evt) {
@@ -77,21 +84,22 @@ function handleFormSubmitAvatar(evt) {
   addAvatar(inputAvatarLink.value)
   .then((res) => {
     profileAvatar.src = res.avatar;
-    closePopup(avatarPopup)
+    closePopup(avatarPopup);
+    evt.target.reset();
   })
   .catch((err) => {
     console.log(err);
   })
   .finally(() => {
     renderLoading(false, buttonSumitAvatar);
-  }); 
-  evt.target.reset();
+  });
 };
 
 export {
   handleFormProfileSubmit,
   handleFormSubmitCard,
   handleFormSubmitAvatar,
+  checkResponse,
   formCardElement,
   formProfile,
   formAvatar,
